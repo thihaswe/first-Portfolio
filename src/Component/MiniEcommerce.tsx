@@ -40,7 +40,7 @@ const MiniEcommerce = () => {
             >
               <Box>
                 <Typography sx={{ textAlign: "start", padding: 3 }}>
-                  It is a mini-ecommerce app and it is just a mini-app,I didn't
+                  It is a mini-ecommerce app and it is just a mini-app,I did not
                   deploy it in any cloud service but I will leave a link the git
                   repo of it
                 </Typography>
