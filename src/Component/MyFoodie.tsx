@@ -1,0 +1,72 @@
+import { Box, Paper, Typography } from "@mui/material";
+import Image from "next/image";
+import mainpage from "../Images/mainPage.png";
+import Link from "next/link";
+import logo from "../Images/logo.png";
+
+const MyFoodie = () => {
+  const textUnderLink = `if my app doen't work i am sorry my database free
+  trial is ended :) but i will going to add a new one soon
+ `;
+  const alert = `alert .... orderapp will always takes you to the table 1`;
+  return (
+    <Box marginBottom={15}>
+      <Typography sx={{ textAlign: "start", marginBottom: 10 }} variant="h5">
+        MY FOODIE POS App
+      </Typography>
+      <Box display={"flex"} justifyContent={"space-around"}>
+        <Image src={mainpage} alt={"foodiePos"} width={450} height={250} />
+
+        <Box>
+          <Paper
+            elevation={3}
+            style={{
+              width: 500,
+              height: 300,
+              position: "relative",
+            }}
+          >
+            <Paper
+              elevation={3}
+              style={{
+                width: 530,
+                height: 300,
+                position: "relative",
+                top: -15,
+                right: -10,
+                display: "flex",
+                alignItems: "center", // Center vertically
+              }}
+            >
+              <Box>
+                <Typography sx={{ textAlign: "start", padding: 3 }}>
+                  This one is called foodie pos and it includes
+                  <span style={{ color: "#88DF9D" }}> orderapp</span> for
+                  customers and manage to add or remove and update items and
+                  <span style={{ color: "#88DF9D" }}> backoffice app </span>
+                  getting and update status to the orders that come from
+                  customers.
+                </Typography>
+                <Link href={`https://my-foodie-pos.vercel.app/`}>
+                  <Box>To my app</Box>
+                </Link>
+                <Typography>{textUnderLink}</Typography>
+                <Typography color={"red"}>{alert}</Typography>
+              </Box>
+            </Paper>
+          </Paper>
+        </Box>
+      </Box>
+      <Typography mt={5}>
+        In this app, I am using Next Js framework for frontend and
+        backend.Material UI for displaying beautiful UI and using redux toolkit
+        for data and state management. I am using postgres SQL for database and
+        I am using Prisma for connecting between database and backend. I
+        admitted that this is not my idea but I wrote the 80% of the code by
+        myself but inmitae some of the code from my teacher.
+      </Typography>
+    </Box>
+  );
+};
+
+export default MyFoodie;
