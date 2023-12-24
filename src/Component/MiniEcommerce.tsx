@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import mainpage from "../Images/mainPage.png";
+
 const MiniEcommerce = () => {
   return (
     <Box>
@@ -43,7 +44,7 @@ const MiniEcommerce = () => {
                   deploy it in any cloud service but I will leave a link the git
                   repo of it
                 </Typography>
-                <Link href={`https://github.com/thihaswe/thiha-E-commerce`}>
+                <Link href={"https://github.com/thihaswe/thiha-E-commerce"}>
                   <Box>To my github repo</Box>
                 </Link>
               </Box>
