@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import htmlTag from "../Images/htmllogo.png";
+import htmlTag from "../Images/htmlLogo.png";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
