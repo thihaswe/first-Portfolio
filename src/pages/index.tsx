@@ -1,41 +1,72 @@
 import TypingEffect from "@/Component/DIsplayText";
-import roboto from "next/font/google";
-import { Box, Divider, Paper, Typography } from "@mui/material";
+
+import { Box, Divider, Paper, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import WavingHandIcon from "@mui/icons-material/WavingHand";
+import Footer from "@/Component/Footer";
 
-const index = () => {
+const HomePage = () => {
+  const flexWrap = useMediaQuery("(max-width:492px)");
   const nameText = "Hello I am thiha swe";
 
   const paragraphText =
     "I  am a fullstack-webdeveloper and I am really interested in ComputerScience.";
 
   return (
-    <Box sx={{ marginTop: "15px" }}>
+    <Box
+      sx={{
+        marginTop: "15px",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
-          maxWidth: 500,
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+          maxWidth: 800,
           margin: "0 auto",
-          height: 200,
+          height: { xs: 300, md: 200 },
         }}
       >
-        <Paper
-          sx={{ width: 200, backgroundColor: "lightskyblue" }}
-          elevation={1}
-        >
-          <Typography
-            sx={{ fontWeight: "bold", fontStyle: "italic" }}
-            variant="h5"
+        <Box sx={{ marginBottom: flexWrap ? 5 : 0 }}>
+          <Paper
+            sx={{
+              paddingLeft: 2,
+              position: "relative",
+              backgroundColor: "lightblue",
+              width: 200,
+              height: 200,
+            }}
+            elevation={3}
           >
-            <WavingHandIcon sx={{ color: "#E4A67B" }} /> {nameText}
-          </Typography>
-          <br />
-          <TypingEffect text={paragraphText} />
-        </Paper>
-
+            <Paper
+              sx={{
+                textDecoration: "none",
+                position: "relative",
+                top: -10,
+                width: 200,
+                height: 200,
+                backgroundColor: "lightblue",
+                mb: { xs: 10, md: 0 },
+              }}
+              elevation={1}
+            >
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  fontStyle: "italic",
+                  textDecoration: "none",
+                }}
+                variant="h5"
+              >
+                <WavingHandIcon sx={{ color: "#E4A67B" }} /> {nameText}
+              </Typography>
+              <br />
+              <TypingEffect text={paragraphText} />
+            </Paper>
+          </Paper>
+        </Box>
         <Image
           src={"/myPhoto.png"}
           alt={"photo is unavailable now"}
@@ -44,8 +75,19 @@ const index = () => {
           style={{ borderRadius: 100 }}
         />
       </Box>
-      <Box sx={{ margin: "50px 0px 0px 50px" }}>
-        <Typography variant="h5" fontWeight={"light"} textAlign={"start"}>
+      <Box
+        sx={{
+          margin: flexWrap ? "200px 0 0 50px" : "50px 0px 0px 50px",
+        }}
+      >
+        <Typography
+          variant="h5"
+          sx={{
+            textDecoration: "none",
+            fontWeight: "light",
+            textAlign: "start",
+          }}
+        >
           My technical skills
         </Typography>
         <Divider
@@ -77,7 +119,7 @@ const index = () => {
                   sx={{
                     mt: 1,
                     display: "flex",
-                    width: 150,
+                    width: { xs: 80, md: 150 },
                     height: 70,
                     flexDirection: "column",
                     alignItems: "center",
@@ -86,14 +128,18 @@ const index = () => {
                     transition: "all 0.2s ease-in-out",
                     padding: 1,
                     "&:hover": {
-                      transform: "scale(1.3,1.3)",
+                      transform: "scale(1.3,1.3 )",
 
-                      backgroundColor: "lightskyblue",
+                      backgroundColor: "lightblue",
                       borderRadius: 15,
                     },
                   }}
                 >
-                  <Typography sx={{ color: "black" }}>{item.label}</Typography>
+                  <Typography
+                    sx={{ color: "black", fontSize: { xs: 13, md: 20 } }}
+                  >
+                    {item.label}
+                  </Typography>
                   <Image
                     src={item.assetUrl}
                     alt={"photo is unavailable now"}
@@ -109,11 +155,12 @@ const index = () => {
           })}
         </Box>
       </Box>
+      <Footer />
     </Box>
   );
 };
 
-export default index;
+export default HomePage;
 
 export const stacks = [
   {

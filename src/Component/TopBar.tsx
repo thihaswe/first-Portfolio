@@ -15,7 +15,7 @@ const TopBar = () => {
       height={60}
       sx={{
         mb: 5,
-        backgroundColor: "lightgrey",
+        backgroundColor: "lightblue",
       }}
       border="1px solid grey"
       textAlign={"center"}

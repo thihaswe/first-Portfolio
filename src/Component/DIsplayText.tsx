@@ -22,7 +22,7 @@ const TypingEffect = ({ text }: Prop) => {
     return () => clearInterval(intervalId);
   }, [text]);
 
-  return <Typography>{displayText}</Typography>;
+  return <Typography sx={{ textDecoration: "none" }}>{displayText}</Typography>;
 };
 
 export default TypingEffect;

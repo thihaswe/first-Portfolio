@@ -1,10 +1,11 @@
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import mainpage from "../Images/mainPage.png";
+import basket from "../Images/download (1).png";
 
 const MiniEcommerce = () => {
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
   return (
     <Box>
       <Typography sx={{ textAlign: "start", marginBottom: 10 }} variant="h5">
@@ -14,23 +15,30 @@ const MiniEcommerce = () => {
         display={"flex"}
         justifyContent={"space-around"}
         flexDirection={"row-reverse"}
+        flexWrap={"wrap"}
       >
-        <Image src={mainpage} alt={"foodiePos"} width={450} height={250} />
+        <Image
+          src={basket}
+          alt={"foodiePos"}
+          width={400}
+          height={250}
+          style={{ width: isSmallScreen ? 300 : 450 }}
+        />
 
-        <Box>
+        <Box sx={{ marginTop: { xs: 10, md: 10, lg: 0 } }}>
           <Paper
             elevation={3}
             style={{
-              width: 500,
-              height: 300,
+              width: isSmallScreen ? 300 : 500,
+              height: isSmallScreen ? 350 : 300,
               position: "relative",
             }}
           >
             <Paper
               elevation={3}
               style={{
-                width: 530,
-                height: 300,
+                width: isSmallScreen ? 300 : 500,
+                height: isSmallScreen ? 350 : 300,
                 position: "relative",
                 top: -15,
                 right: -10,
@@ -52,6 +60,10 @@ const MiniEcommerce = () => {
           </Paper>
         </Box>
       </Box>
+      <Typography mt={5}>
+        I had not finished that app becuase that was one of the app I wrote
+        during the class in order not to forget what I have learned in the class
+      </Typography>
     </Box>
   );
 };
