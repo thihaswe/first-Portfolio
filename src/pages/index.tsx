@@ -32,7 +32,6 @@ const HomePage = () => {
         <Box sx={{ marginBottom: flexWrap ? 5 : 0 }}>
           <Paper
             sx={{
-              paddingLeft: 2,
               position: "relative",
               backgroundColor: "lightblue",
               width: 200,
@@ -45,6 +44,7 @@ const HomePage = () => {
                 textDecoration: "none",
                 position: "relative",
                 top: -10,
+                right: -10,
                 width: 200,
                 height: 200,
                 backgroundColor: "lightblue",
@@ -77,7 +77,7 @@ const HomePage = () => {
       </Box>
       <Box
         sx={{
-          margin: flexWrap ? "200px 0 0 50px" : "50px 0px 0px 50px",
+          margin: flexWrap ? "200px 0 0 50px" : "35px 0px 0px 50px",
         }}
       >
         <Typography
@@ -102,7 +102,7 @@ const HomePage = () => {
         <Box
           sx={{
             display: "flex",
-
+            mt: 3,
             flexWrap: "wrap",
           }}
         >
@@ -128,7 +128,7 @@ const HomePage = () => {
                     transition: "all 0.2s ease-in-out",
                     padding: 1,
                     "&:hover": {
-                      transform: "scale(1.3,1.3 )",
+                      transform: "scale(1.2,1.2 )",
 
                       backgroundColor: "lightblue",
                       borderRadius: 15,

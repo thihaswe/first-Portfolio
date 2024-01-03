@@ -47,9 +47,13 @@ const TopBar = () => {
                 sx={{
                   color: "black",
                   mr: 5,
+                  transition: "all 0.2s ease-in-out",
                   borderBottom: isActive(item.href)
                     ? "3px solid black "
                     : "none",
+                  "&:hover": {
+                    transform: "scale(1.2)",
+                  },
                 }}
               >
                 {item.title}
