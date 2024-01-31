@@ -49,8 +49,8 @@ const MiniEcommerce = () => {
               <Box>
                 <Typography sx={{ textAlign: "start", padding: 3 }}>
                   It is a mini-ecommerce app and it is just a mini-app,I did not
-                  deploy it in any cloud service but I will leave a link the git
-                  repo of it
+                  deploy it in any cloud service but I will leave a link to the
+                  git repo of it.
                 </Typography>
                 <Link href={"https://github.com/thihaswe/thiha-E-commerce"}>
                   <Box>To my github repo</Box>
@@ -60,10 +60,12 @@ const MiniEcommerce = () => {
           </Paper>
         </Box>
       </Box>
-      <Typography mt={5}>
+      {/* <Typography mt={5}>
         I had not finished that app becuase that was one of the app I wrote
-        during the class in order not to forget what I have learned in the class
-      </Typography>
+        during the class in order not to forget what I have learned in the
+        class.But It is absolutely working
+        <span style={{ fontSize: "20px", marginLeft: "5px" }}>{":)"}</span>
+      </Typography> */}
     </Box>
   );
 };

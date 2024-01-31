@@ -1,14 +1,17 @@
-import { Box } from "@mui/system";
-import { ReactNode } from "react";
-import TopBar from "./TopBar";
-import { useRouter } from "next/router";
+// ... (your existing imports)
 
-interface Prop {
-  children: ReactNode;
-}
+import { Prop, ThemeContext } from "@/content/themeContent";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { Box, Button } from "@mui/material";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import TopBar from "./TopBar";
+import CopyRight from "./CopyRight";
 
 const Layout = ({ children }: Prop) => {
   const router = useRouter();
+  const { toggleTheme, data } = useContext(ThemeContext);
 
   return (
     <Box
@@ -16,7 +19,6 @@ const Layout = ({ children }: Prop) => {
         backgroundColor: "primary.light",
         height: "100vh",
         textAlign: "center",
-        textDecoration: "none",
       }}
     >
       <Box
@@ -25,11 +27,36 @@ const Layout = ({ children }: Prop) => {
           backgroundColor: "primary.light",
         }}
       >
-        <Box>
-          <TopBar />
-          {children}
-        </Box>
+        <TopBar />
+
+        <Button
+          sx={{
+            position: "sticky",
+            top: 50,
+            left: "100%",
+            margin: 2,
+            borderRadius: 150,
+            zIndex: 5,
+          }}
+          variant="contained"
+          onClick={() => {
+            toggleTheme(data);
+          }}
+        >
+          {data === "light" ? (
+            <LightModeIcon
+              sx={{ borderRadius: 50, fontSize: 30 }}
+            ></LightModeIcon>
+          ) : (
+            <DarkModeIcon
+              sx={{ borderRadius: 50, fontSize: 30 }}
+            ></DarkModeIcon>
+          )}
+        </Button>
+
+        {children}
       </Box>
+      <CopyRight></CopyRight>
     </Box>
   );
 };

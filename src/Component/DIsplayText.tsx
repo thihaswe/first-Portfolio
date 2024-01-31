@@ -22,7 +22,19 @@ const TypingEffect = ({ text }: Prop) => {
     return () => clearInterval(intervalId);
   }, [text]);
 
-  return <Typography sx={{ textDecoration: "none" }}>{displayText}</Typography>;
+  return (
+    <Typography sx={{ textDecoration: "none", p: 1 }}>{displayText}</Typography>
+  );
 };
 
 export default TypingEffect;
+
+// <Typography>
+// &#169; 2023-2024 Thiha Swe
+// <br /> All Rights Reserved
+// </Typography>
+
+//   <PhoneIcon sx={{ mr: 5 }} />
+//   <Typography>09 - 767029207</Typography>
+// <EmailIcon sx={{ mr: 5 }} />
+//<Typography>thihais123@gmail.com</Typography>

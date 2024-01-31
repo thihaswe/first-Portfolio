@@ -69,10 +69,10 @@ const MyFoodie = () => {
                 <Typography sx={{ textAlign: "start", padding: 3 }}>
                   This one is called foodie pos and it includes
                   <span style={{ color: "#88DF9D" }}> orderapp</span> for
-                  customers and manage to add or remove and update items and
-                  <span style={{ color: "#88DF9D" }}> backoffice app </span>
-                  getting and update status to the orders that come from
-                  customers.
+                  customers and{" "}
+                  <span style={{ color: "#88DF9D" }}> backoffice app </span>for
+                  managers to add or remove and update items, status to the
+                  orders that come from customers.
                 </Typography>
                 <Link href={`https://my-foodie-pos.vercel.app/`}>
                   <Box>To my app</Box>
@@ -96,7 +96,7 @@ const MyFoodie = () => {
         myself but inmitae some of the code from my teacher.
       </Typography>
 
-      <Box sx={{ mt: 10 }}>
+      {/* <Box sx={{ mt: 10 }}>
         <Typography sx={{ textDecoration: "none" }}>
           Here are some of the photos from my app
         </Typography>
@@ -112,7 +112,7 @@ const MyFoodie = () => {
             />
           );
         })}
-      </Box>
+      </Box> */}
     </Box>
   );
 };

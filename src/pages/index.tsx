@@ -1,14 +1,15 @@
 import TypingEffect from "@/Component/DIsplayText";
-
-import { Box, Divider, Paper, Typography, useMediaQuery } from "@mui/material";
+import { ThemeContext } from "@/content/themeContent";
+import WavingHandIcon from "@mui/icons-material/WavingHand";
+import { Box, Paper, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import WavingHandIcon from "@mui/icons-material/WavingHand";
-import Footer from "@/Component/Footer";
+import { useContext } from "react";
 
 const HomePage = () => {
-  const flexWrap = useMediaQuery("(max-width:492px)");
+  const flexWrap = useMediaQuery("(max-width:560px)");
   const nameText = "Hello I am thiha swe";
+  const { data } = useContext(ThemeContext);
 
   const paragraphText =
     "I  am a fullstack-webdeveloper and I am really interested in ComputerScience.";
@@ -33,9 +34,9 @@ const HomePage = () => {
           <Paper
             sx={{
               position: "relative",
-              backgroundColor: "lightblue",
-              width: 200,
-              height: 200,
+              backgroundColor: data === "light" ? "lightblue" : "info.main",
+              width: 250,
+              height: 250,
             }}
             elevation={3}
           >
@@ -45,20 +46,21 @@ const HomePage = () => {
                 position: "relative",
                 top: -10,
                 right: -10,
-                width: 200,
-                height: 200,
-                backgroundColor: "lightblue",
+                width: 250,
+                height: 250,
+                backgroundColor: data === "light" ? "lightblue" : "info.main",
                 mb: { xs: 10, md: 0 },
               }}
               elevation={1}
             >
               <Typography
                 sx={{
+                  paddingTop: 3,
                   fontWeight: "bold",
                   fontStyle: "italic",
                   textDecoration: "none",
                 }}
-                variant="h5"
+                variant="h6"
               >
                 <WavingHandIcon sx={{ color: "#E4A67B" }} /> {nameText}
               </Typography>
@@ -70,39 +72,31 @@ const HomePage = () => {
         <Image
           src={"/myPhoto.png"}
           alt={"photo is unavailable now"}
-          width={180}
-          height={180}
-          style={{ borderRadius: 100 }}
+          width={230}
+          height={230}
+          style={{ borderRadius: 130 }}
         />
       </Box>
       <Box
         sx={{
-          margin: flexWrap ? "200px 0 0 50px" : "35px 0px 0px 50px",
+          margin: flexWrap ? "230px 0 0 50px" : "150px 0px 0px 50px",
         }}
       >
         <Typography
-          variant="h5"
           sx={{
             textDecoration: "none",
             fontWeight: "light",
             textAlign: "start",
+            color: "secondary.main",
           }}
         >
-          My technical skills
+          I am using these stacks to develop full-stack web apps
         </Typography>
-        <Divider
-          sx={{
-            width: 250,
-            fontStyle: "bold",
-            height: 15,
-            borderBottomWidth: 5,
-            borderColor: "black",
-          }}
-        ></Divider>
+
         <Box
           sx={{
             display: "flex",
-            mt: 3,
+            mt: 1,
             flexWrap: "wrap",
           }}
         >
@@ -119,8 +113,8 @@ const HomePage = () => {
                   sx={{
                     mt: 1,
                     display: "flex",
-                    width: { xs: 80, md: 150 },
-                    height: 70,
+                    width: { xs: 50, md: 100 },
+                    height: 50,
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "space-around",
@@ -129,14 +123,14 @@ const HomePage = () => {
                     padding: 1,
                     "&:hover": {
                       transform: "scale(1.2,1.2 )",
-
-                      backgroundColor: "lightblue",
-                      borderRadius: 15,
                     },
                   }}
                 >
                   <Typography
-                    sx={{ color: "black", fontSize: { xs: 13, md: 20 } }}
+                    sx={{
+                      color: "secondary.main",
+                      fontSize: { xs: 10, md: 13 },
+                    }}
                   >
                     {item.label}
                   </Typography>
@@ -155,7 +149,6 @@ const HomePage = () => {
           })}
         </Box>
       </Box>
-      <Footer />
     </Box>
   );
 };
@@ -191,6 +184,12 @@ export const stacks = [
     assetUrl: "/typescript.jpg",
     label: "TypeScript",
     href: "https://www.typescriptlang.org/",
+  },
+  {
+    id: 10,
+    assetUrl: "/redux.png",
+    label: "Redux Toolkit",
+    href: "https://redux-toolkit.js.org/",
   },
   {
     id: 5,
