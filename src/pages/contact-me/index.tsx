@@ -91,7 +91,10 @@ const ContactMe = () => {
         }}
       >
         <Box sx={{ textAlign: "start", alignItems: "center", m: 5 }}>
-          <a href="/CV_20240130THS.pdf" download="/CV_20240130THS.pdf">
+          <a
+            href="/CV_20240131thihaswe.pdf"
+            download="/CV_20240131thihaswe.pdf"
+          >
             <Button sx={{ borderRadius: 3 }} variant="contained">
               <Typography>My Resume</Typography>
               <DownloadIcon></DownloadIcon>
