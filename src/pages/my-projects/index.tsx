@@ -1,4 +1,5 @@
 import MiniEcommerce from "@/Component/MiniEcommerce";
+import MyCashNote from "@/Component/MyCashNote";
 import MyFoodie from "@/Component/MyFoodie";
 
 import { Box } from "@mui/material";
@@ -8,6 +9,7 @@ const MyProject = () => {
     <Box>
       <MyFoodie />
       <MiniEcommerce />
+      <MyCashNote />
     </Box>
   );
 };
