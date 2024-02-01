@@ -106,7 +106,11 @@ const ContactMe = () => {
             How to Contact?
           </Typography>
           <Box
-            sx={{ color: "secondary.main", fontSize: 35, fontStyle: "italic" }}
+            sx={{
+              color: "secondary.main",
+              fontSize: { xs: 25, md: 35 },
+              fontStyle: "italic",
+            }}
           >
             <List>
               <ListItem>
