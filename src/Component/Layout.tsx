@@ -10,7 +10,6 @@ import TopBar from "./TopBar";
 import CopyRight from "./CopyRight";
 
 const Layout = ({ children }: Prop) => {
-  const router = useRouter();
   const { toggleTheme, data } = useContext(ThemeContext);
 
   return (

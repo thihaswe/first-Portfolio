@@ -35,6 +35,7 @@ const ThemeContentPage = ({ children }: Prop) => {
       setData(current);
     } else {
       localStorage.setItem("theme", "light");
+      setData("light");
     }
   }, [isReady]);
 
