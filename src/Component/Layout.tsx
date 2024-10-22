@@ -1,13 +1,10 @@
-// ... (your existing imports)
-
 import { Prop, ThemeContext } from "@/content/themeContent";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import { Box, Button } from "@mui/material";
-import { useRouter } from "next/router";
 import { useContext } from "react";
-import TopBar from "./TopBar";
 import CopyRight from "./CopyRight";
+import TopBar from "./TopBar";
 
 const Layout = ({ children }: Prop) => {
   const { toggleTheme, data } = useContext(ThemeContext);

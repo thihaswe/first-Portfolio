@@ -8,6 +8,7 @@ import { useContext } from "react";
 
 const HomePage = () => {
   const flexWrap = useMediaQuery("(max-width:560px)");
+  const tooheight = useMediaQuery("(max-width:800px)");
   const nameText = "Hello I am thiha swe";
   const { data } = useContext(ThemeContext);
 
@@ -27,7 +28,7 @@ const HomePage = () => {
           justifyContent: "space-around",
           maxWidth: 800,
           margin: "0 auto",
-          height: { xs: 300, md: 200 },
+          marginBottom: 10,
         }}
       >
         <Box sx={{ marginBottom: flexWrap ? 5 : 0 }}>
@@ -78,9 +79,16 @@ const HomePage = () => {
         />
       </Box>
       <Box
-        sx={{
-          margin: flexWrap ? "230px 0 0 50px" : "150px 0px 0px 50px",
-        }}
+        sx={
+          {
+            // margin: flexWrap
+            //   ? "270px 0 0 50px"
+            //   : tooheight
+            //   ? "50px 0 0 50px"
+            //   : "150px 0px 0px 50px",
+            // bgcolor: "red",
+          }
+        }
       >
         <Typography
           sx={{
@@ -90,7 +98,7 @@ const HomePage = () => {
             color: "secondary.main",
           }}
         >
-          I am using these stacks to develop full-stack web apps
+          Tech Stack
         </Typography>
 
         <Box
@@ -185,6 +193,7 @@ export const stacks = [
     label: "TypeScript",
     href: "https://www.typescriptlang.org/",
   },
+  { id: 11, assetUrl: "/react.png", label: "React", href: "https://react.dev" },
   {
     id: 10,
     assetUrl: "/redux.png",
