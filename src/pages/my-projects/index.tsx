@@ -1,6 +1,6 @@
-import MiniEcommerce from "@/Component/MiniEcommerce";
-import MyCashNote from "@/Component/MyCashNote";
-import MyFoodie from "@/Component/MyFoodie";
+import MiniEcommerce from "@/Component/projects/MiniEcommerce";
+import MyCashNote from "@/Component/projects/MyCashNote";
+import MyFoodie from "@/Component/projects/MyFoodie";
 
 import { Box } from "@mui/material";
 

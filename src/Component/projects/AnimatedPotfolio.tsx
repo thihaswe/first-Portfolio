@@ -1,25 +1,26 @@
-import { Box, Typography, Paper, useMediaQuery } from "@mui/material";
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import basket from "../Images/e-ecommerce.png";
+import Link from "next/link";
+import cashNote from "../../Images/myCashNote.png";
+import { Box, Typography, Paper, useMediaQuery } from "@mui/material";
 
-const MiniEcommerce = () => {
+const AnimatedPortfolio = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
+
   return (
-    <Box>
+    <Box sx={{ mt: 15 }}>
       <Typography sx={{ textAlign: "start", marginBottom: 10 }} variant="h5">
-        My E-commerce app
+        My-Cash-Note App
       </Typography>
       <Box
         display={"flex"}
         justifyContent={"space-around"}
-        flexDirection={"row-reverse"}
+        flexDirection={"row"}
         flexWrap={"wrap"}
       >
         <Image
-          src={basket}
-          alt={"miniEcommerce"}
+          src={cashNote}
+          alt={"myCashNote"}
           width={400}
           height={250}
           style={{ width: isSmallScreen ? 300 : 450 }}
@@ -48,9 +49,11 @@ const MiniEcommerce = () => {
             >
               <Box>
                 <Typography sx={{ textAlign: "start", padding: 3 }}>
-                  It is a mini-ecommerce shopping website
+                  The Cash Note app is my latest app.In this app i focus more on
+                  data modelling than the design. I guarentee that this project
+                  is 100 % coded by me with the help of google.
                 </Typography>
-                <Link href={"https://github.com/thihaswe/thiha-E-commerce"}>
+                <Link href={"https://github.com/thihaswe/my_cash_note"}>
                   <Box>To my github repo</Box>
                 </Link>
               </Box>
@@ -58,14 +61,8 @@ const MiniEcommerce = () => {
           </Paper>
         </Box>
       </Box>
-      {/* <Typography mt={5}>
-        I had not finished that app becuase that was one of the app I wrote
-        during the class in order not to forget what I have learned in the
-        class.But It is absolutely working
-        <span style={{ fontSize: "20px", marginLeft: "5px" }}>{":)"}</span>
-      </Typography> */}
     </Box>
   );
 };
 
-export default MiniEcommerce;
+export default AnimatedPortfolio;

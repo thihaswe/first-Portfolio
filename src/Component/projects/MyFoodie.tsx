@@ -1,16 +1,16 @@
 import { Box, Divider, Paper, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
-import mainpage from "../Images/mainPage.png";
+import mainpage from "../../Images/mainPage.png";
 import Link from "next/link";
-import orderCard from "../Images/myFoodiePos/orderCard.png";
-import orderHome from "../Images/myFoodiePos/orderHome.png";
-import orderMenus from "../Images/myFoodiePos/orderMenus.png";
-import activerOrder from "../Images/myFoodiePos/activeOrder.png";
-import BackofficeOrder from "../Images/myFoodiePos/backofficeOrderCard.png";
-import Cart from "../Images/myFoodiePos/cartPage.png";
-import qr from "../Images/myFoodiePos/qr.png";
-import menuDetail from "../Images/myFoodiePos/menuDetail.png";
-import menus from "../Images/myFoodiePos/menus.png";
+import orderCard from "../../Images/myFoodiePos/orderCard.png";
+import orderHome from "../../Images/myFoodiePos/orderHome.png";
+import orderMenus from "../../Images/myFoodiePos/orderMenus.png";
+import activerOrder from "../../Images/myFoodiePos/activeOrder.png";
+import BackofficeOrder from "../../Images/myFoodiePos/backofficeOrderCard.png";
+import Cart from "../../Images/myFoodiePos/cartPage.png";
+import qr from "../../Images/myFoodiePos/qr.png";
+import menuDetail from "../../Images/myFoodiePos/menuDetail.png";
+import menus from "../../Images/myFoodiePos/menus.png";
 
 const MyFoodie = () => {
   const images = [

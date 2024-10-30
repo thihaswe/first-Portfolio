@@ -1,24 +1,31 @@
 import { Box, Paper, Typography, useMediaQuery } from "@mui/material";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
-import cashNote from "../Images/myCashNote.png";
 
-const MyCashNote = () => {
+interface Prop {
+  title: string;
+  desc: string;
+  href: string;
+  image: StaticImageData;
+  reverse: boolean;
+}
+
+const ProjectCard = ({ prop }: { prop: Prop }) => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   return (
     <Box sx={{ mt: 15 }}>
       <Typography sx={{ textAlign: "start", marginBottom: 10 }} variant="h5">
-        My-Cash-Note App
+        {prop.title}
       </Typography>
       <Box
         display={"flex"}
         justifyContent={"space-around"}
-        flexDirection={"row"}
+        flexDirection={prop.reverse ? "row-reverse" : "row"}
         flexWrap={"wrap"}
       >
         <Image
-          src={cashNote}
+          src={prop.image}
           alt={"myCashNote"}
           width={400}
           height={250}
@@ -48,11 +55,9 @@ const MyCashNote = () => {
             >
               <Box>
                 <Typography sx={{ textAlign: "start", padding: 3 }}>
-                  The Cash Note app is my latest app.In this app i focus more on
-                  data modelling than the design. I guarentee that this project
-                  is 100 % coded by me with the help of google.
+                  {prop.desc}
                 </Typography>
-                <Link href={"https://github.com/thihaswe/my_cash_note"}>
+                <Link href={prop.href}>
                   <Box>To my github repo</Box>
                 </Link>
               </Box>
@@ -64,4 +69,4 @@ const MyCashNote = () => {
   );
 };
 
-export default MyCashNote;
+export default ProjectCard;
