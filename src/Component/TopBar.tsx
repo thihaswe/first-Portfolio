@@ -30,6 +30,7 @@ const TopBar = () => {
     <Box>
       <Box
         justifyContent={"space-around"}
+        alignItems={"center"}
         height={60}
         sx={{
           borderRadius: 10,

@@ -26,7 +26,7 @@ const ContactMe = () => {
     },
     {
       id: 2,
-      href: "mailto:thihais123@gmail.com",
+      href: "mailto:thihaswe.work@gmail.com",
       icon: (
         <EmailIcon
           style={{ fontSize: 35, color: "secondary.main" }}
@@ -137,13 +137,20 @@ const ContactMe = () => {
                   Ph - 09 7670 29 207
                 </Link>
               </ListItem>
+
               <ListItem>
-                <Link
-                  href="mailto:thihais123@gmail.com"
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=thihaswe.work@gmail.com&su=Hi%20Thiha&body=I'm%20interested%20in%20working%20with%20you."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     textDecoration: "none",
                     color: "inherit",
                     transition: "all ease-in-out 0.3s",
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: 16,
+                    marginBottom: 16,
                   }}
                   onMouseOver={(e) =>
                     (e.currentTarget.style.transform = "scale(1.3)")
@@ -153,9 +160,10 @@ const ContactMe = () => {
                   }}
                 >
                   <EmailIcon sx={{ mr: 3 }} />
-                  Email - thihais123@gmail.com
-                </Link>
+                  Email - thihaswe.work@gmail.com
+                </a>
               </ListItem>
+
               <ListItem>
                 {ListItemList.filter((item) => item.id > 2)
                   .sort((a, b) => b.id - a.id)
