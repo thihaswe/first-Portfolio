@@ -94,8 +94,9 @@ const HomePage = () => {
           sx={{
             textDecoration: "none",
             fontWeight: "light",
-            textAlign: "start",
+            textAlign: "center",
             color: "secondary.main",
+            fontSize: "32px",
           }}
         >
           Tech Stack
@@ -103,9 +104,10 @@ const HomePage = () => {
 
         <Box
           sx={{
-            display: "flex",
-            mt: 1,
-            flexWrap: "wrap",
+            display: "grid",
+            gridTemplateColumns: "auto auto auto auto",
+            justifyContent: "center",
+            gap: 5,
           }}
         >
           {stacks.map((item) => {

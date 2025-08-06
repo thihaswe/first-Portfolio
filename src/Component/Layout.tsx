@@ -1,7 +1,7 @@
 import { Prop, ThemeContext } from "@/content/themeContent";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import { useContext } from "react";
 import CopyRight from "./CopyRight";
 import TopBar from "./TopBar";
@@ -50,9 +50,9 @@ const Layout = ({ children }: Prop) => {
           )}
         </Button>
 
-        {children}
+        <Container sx={{ minHeight: "100vh" }}> {children}</Container>
       </Box>
-      <CopyRight></CopyRight>
+      <CopyRight />
     </Box>
   );
 };
