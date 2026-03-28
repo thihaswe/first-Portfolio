@@ -1,113 +1,180 @@
-import TypingEffect from "@/Component/DIsplayText";
-import { ThemeContext } from "@/content/themeContent";
+import TypingEffect from "@/Component/DisplayText";
+import { ThemeContext } from "@/content/themeContent.tsx";
 import WavingHandIcon from "@mui/icons-material/WavingHand";
-import { Box, Paper, Typography, useMediaQuery } from "@mui/material";
+import CodeIcon from "@mui/icons-material/Code";
+import { Box, Paper, Typography, useMediaQuery, Chip } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
 
 const HomePage = () => {
   const flexWrap = useMediaQuery("(max-width:560px)");
-  const tooheight = useMediaQuery("(max-width:800px)");
-  const nameText = "Hello I am thiha swe";
+  const nameText = "Thiha Swe";
   const { data } = useContext(ThemeContext);
 
   const paragraphText =
-    "I  am a fullstack-webdeveloper and I am really interested in ComputerScience.";
+    "I am a fullstack web developer passionate about building modern web applications. I love exploring new technologies and turning ideas into reality through code.";
 
   return (
     <Box
       sx={{
-        marginTop: "15px",
+        marginTop: "20px",
+        maxWidth: 1200,
+        margin: "0 auto",
+        px: 2,
       }}
     >
+      {/* Hero Section */}
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-around",
-          maxWidth: 800,
-          margin: "0 auto",
-          marginBottom: 10,
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 4,
+          marginBottom: 8,
+          py: 4,
         }}
       >
-        <Box sx={{ marginBottom: flexWrap ? 5 : 0 }}>
+        <Box 
+          sx={{ 
+            order: flexWrap ? 2 : 1,
+            textAlign: flexWrap ? "center" : "left",
+          }}
+        >
           <Paper
             sx={{
               position: "relative",
-              backgroundColor: data === "light" ? "lightblue" : "info.main",
-              width: 250,
-              height: 250,
+              backgroundColor: data === "light" ? "info.main" : "info.main",
+              p: 4,
+              maxWidth: 400,
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: -2,
+                left: -2,
+                right: 2,
+                bottom: 2,
+                zIndex: -1,
+                backgroundColor: data === "light" ? "primary.light" : "primary.dark",
+                borderRadius: 4,
+              },
             }}
-            elevation={3}
+            elevation={0}
+            className="fade-in"
           >
-            <Paper
+            <Typography
               sx={{
-                textDecoration: "none",
-                position: "relative",
-                top: -10,
-                right: -10,
-                width: 250,
-                height: 250,
-                backgroundColor: data === "light" ? "lightblue" : "info.main",
-                mb: { xs: 10, md: 0 },
+                fontWeight: "bold",
+                fontSize: { xs: "1.5rem", md: "1.75rem" },
+                mb: 2,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
               }}
-              elevation={1}
+              variant="h5"
             >
-              <Typography
-                sx={{
-                  paddingTop: 3,
-                  fontWeight: "bold",
-                  fontStyle: "italic",
-                  textDecoration: "none",
-                }}
-                variant="h6"
-              >
-                <WavingHandIcon sx={{ color: "#E4A67B" }} /> {nameText}
-              </Typography>
-              <br />
-              <TypingEffect text={paragraphText} />
-            </Paper>
+              <WavingHandIcon sx={{ color: "#E4A67B", fontSize: 32 }} /> 
+              Hello, I am {nameText}
+            </Typography>
+            <TypingEffect text={paragraphText} />
+            <Box sx={{ mt: 3, display: "flex", gap: 1, flexWrap: "wrap" }}>
+              <Chip 
+                label="Frontend" 
+                size="small" 
+                sx={{ bgcolor: data === "light" ? "primary.light" : "primary.dark", color: data === "light" ? "primary.dark" : "white" }}
+              />
+              <Chip 
+                label="Backend" 
+                size="small"
+                sx={{ bgcolor: data === "light" ? "primary.light" : "primary.dark", color: data === "light" ? "primary.dark" : "white" }}
+              />
+              <Chip 
+                label="Full Stack" 
+                size="small"
+                sx={{ bgcolor: data === "light" ? "primary.light" : "primary.dark", color: data === "light" ? "primary.dark" : "white" }}
+              />
+            </Box>
           </Paper>
         </Box>
-        <Image
-          src={"/myPhoto.png"}
-          alt={"photo is unavailable now"}
-          width={230}
-          height={230}
-          style={{ borderRadius: 130 }}
-        />
+        <Box 
+          sx={{ 
+            order: flexWrap ? 1 : 2,
+            position: "relative",
+          }}
+          className="fade-in"
+        >
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: 200, md: 260 },
+              height: { xs: 200, md: 260 },
+              borderRadius: "50%",
+              overflow: "hidden",
+              border: `4px solid ${data === "light" ? "primary.main" : "secondary.main"}`,
+              boxShadow: `0 8px 32px ${data === "light" ? "rgba(85, 139, 153, 0.3)" : "rgba(233, 69, 96, 0.3)"}`,
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                top: -2,
+                left: -2,
+                right: -2,
+                bottom: -2,
+                borderRadius: "50%",
+                background: `linear-gradient(45deg, ${data === "light" ? "#558B99" : "#e94560"}, transparent)`,
+                zIndex: -1,
+              },
+            }}
+          >
+            <Image
+              src={"/myPhoto.png"}
+              alt={"Thiha Swe"}
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </Box>
+        </Box>
       </Box>
+
+      {/* Tech Stack Section */}
       <Box
-        sx={
-          {
-            // margin: flexWrap
-            //   ? "270px 0 0 50px"
-            //   : tooheight
-            //   ? "50px 0 0 50px"
-            //   : "150px 0px 0px 50px",
-            // bgcolor: "red",
-          }
-        }
+        sx={{
+          py: 6,
+        }}
+        className="fade-in"
       >
         <Typography
           sx={{
-            textDecoration: "none",
-            fontWeight: "light",
+            fontWeight: "bold",
             textAlign: "center",
             color: "secondary.main",
-            fontSize: "32px",
+            fontSize: { xs: "28px", md: "36px" },
+            mb: 1,
           }}
         >
+          <CodeIcon sx={{ verticalAlign: "middle", mr: 1 }} />
           Tech Stack
+        </Typography>
+        <Typography
+          sx={{
+            textAlign: "center",
+            color: "text.secondary",
+            mb: 6,
+            fontSize: "1rem",
+          }}
+        >
+          Technologies I work with
         </Typography>
 
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "auto auto auto auto",
+            gridTemplateColumns: "repeat(auto-fit, minmax(80px, 1fr))",
             justifyContent: "center",
-            gap: 5,
+            gap: 3,
+            maxWidth: 800,
+            margin: "0 auto",
           }}
         >
           {stacks.map((item) => {
@@ -115,45 +182,59 @@ const HomePage = () => {
               <Link
                 href={item.href}
                 key={item.id}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   textDecoration: "none",
                 }}
               >
-                <Box
+                <Paper
                   sx={{
-                    mt: 1,
                     display: "flex",
-                    width: { xs: 50, md: 100 },
-                    height: 50,
                     flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "space-around",
-
-                    transition: "all 0.2s ease-in-out",
-                    padding: 1,
+                    justifyContent: "center",
+                    p: 2,
+                    height: "100%",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                     "&:hover": {
-                      transform: "scale(1.2,1.2 )",
+                      transform: "translateY(-8px) scale(1.05)",
+                      boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
                     },
+                    cursor: "pointer",
                   }}
+                  elevation={3}
+                  className="hover-lift"
                 >
+                  <Box
+                    sx={{
+                      width: 48,
+                      height: 48,
+                      mb: 1,
+                      position: "relative",
+                    }}
+                  >
+                    <Image
+                      src={item.assetUrl}
+                      alt={item.label}
+                      fill
+                      style={{
+                        objectFit: "contain",
+                        borderRadius: 8,
+                      }}
+                    />
+                  </Box>
                   <Typography
                     sx={{
-                      color: "secondary.main",
-                      fontSize: { xs: 10, md: 13 },
+                      color: "text.secondary",
+                      fontSize: { xs: "11px", md: "13px" },
+                      fontWeight: 500,
+                      textAlign: "center",
                     }}
                   >
                     {item.label}
                   </Typography>
-                  <Image
-                    src={item.assetUrl}
-                    alt={"photo is unavailable now"}
-                    width={30}
-                    height={30}
-                    style={{
-                      borderRadius: 10,
-                    }}
-                  />
-                </Box>
+                </Paper>
               </Link>
             );
           })}
@@ -182,12 +263,7 @@ export const stacks = [
     id: 3,
     assetUrl: "/javascript.jpg",
     label: "JavaScript",
-    href: `https://en.wikipedia.o
-    rg/wiki/JavaScript#:~:tex
-    t=JavaScript%20is%20
-    a%20high%2Dlevel,functional
-    %2C%20and%20im
-    perative%20programming%20styles.`,
+    href: "https://en.wikipedia.org/wiki/JavaScript",
   },
   {
     id: 4,
@@ -199,7 +275,7 @@ export const stacks = [
   {
     id: 10,
     assetUrl: "/redux.png",
-    label: "Redux Toolkit",
+    label: "Redux",
     href: "https://redux-toolkit.js.org/",
   },
   {
@@ -217,19 +293,19 @@ export const stacks = [
   {
     id: 7,
     assetUrl: "/express.jpg",
-    label: "ExpressJS",
+    label: "Express",
     href: "https://expressjs.com/",
   },
   {
     id: 8,
     assetUrl: "/prisma.png",
-    label: "Prisma(ORM)",
+    label: "Prisma",
     href: "https://www.prisma.io/",
   },
   {
     id: 9,
     assetUrl: "/postresql.png",
-    label: "PostgreSql",
+    label: "PostgreSQL",
     href: "https://www.postgresql.org/",
   },
 ];

@@ -6,207 +6,190 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import TelegramIcon from "@mui/icons-material/Telegram";
-import { Box, Button, List, ListItem, Typography } from "@mui/material";
+import { Box, Button, Grid, Paper, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
+import { useContext } from "react";
+import { ThemeContext } from "@/content/themeContent.tsx";
 
 const ContactMe = () => {
-  const ListItemList = [
+  const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("sm"));
+  const { data } = useContext(ThemeContext);
+
+  const contactMethods = [
     {
       id: 1,
-      href: "tel:+95 9 767029207",
-      icon: (
-        <PhoneIcon
-          style={{ fontSize: 35, color: "secondary.main" }}
-          sx={{
-            transition: "all ease-in-out 0.3s",
-            ":hover": { transform: "scale(1.8)" },
-          }}
-        />
-      ),
+      href: "tel:+959767029207",
+      icon: <PhoneIcon sx={{ fontSize: 40 }} />,
+      label: "09 7670 29 207",
+      sublabel: "Phone",
     },
     {
       id: 2,
       href: "mailto:thihaswe.work@gmail.com",
-      icon: (
-        <EmailIcon
-          style={{ fontSize: 35, color: "secondary.main" }}
-          sx={{
-            transition: "all ease-in-out 0.3s",
-            ":hover": { transform: "scale(1.8)" },
-          }}
-        />
-      ),
+      icon: <EmailIcon sx={{ fontSize: 40 }} />,
+      label: "thihaswe.work@gmail.com",
+      sublabel: "Email",
     },
     {
       id: 3,
-      href: "https://t.me/TonyStark7492",
-      icon: (
-        <TelegramIcon
-          style={{ fontSize: 35, color: "secondary.main", margin: 15 }}
-          sx={{
-            transition: "all ease-in-out 0.3s",
-            ":hover": { transform: "scale(1.8)" },
-          }}
-        />
-      ),
+      href: "https://github.com/thihaswe",
+      icon: <GitHubIcon sx={{ fontSize: 40 }} />,
+      label: "GitHub",
+      sublabel: "Follow my work",
     },
     {
       id: 4,
-      href: `https://www.linkedin.com/in/thiha-swe-0a168124a?utm_
-    source=share&utm_campaign=share_via&utm_content=profile&utm
-    _medium=android_app`,
-      icon: (
-        <LinkedInIcon
-          style={{ fontSize: 35, color: "secondary.main", margin: 15 }}
-          sx={{
-            transition: "all ease-in-out 0.3s",
-            ":hover": { transform: "scale(1.8)" },
-          }}
-        />
-      ),
+      href: "https://www.linkedin.com/in/thiha-swe-0a168124a",
+      icon: <LinkedInIcon sx={{ fontSize: 40 }} />,
+      label: "LinkedIn",
+      sublabel: "Connect professionally",
     },
     {
       id: 5,
-      href: "https://github.com/thihaswe",
-      icon: (
-        <GitHubIcon
-          style={{ fontSize: 35, color: "secondary.main", margin: 15 }}
-          sx={{
-            transition: "all ease-in-out 0.3s",
-            ":hover": { transform: "scale(1.8)" },
-          }}
-        />
-      ),
+      href: "https://t.me/TonyStark7492",
+      icon: <TelegramIcon sx={{ fontSize: 40 }} />,
+      label: "Telegram",
+      sublabel: "Quick chat",
     },
   ];
+
   return (
-    <Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          maxWidth: 900,
-          justifyContent: "space-between",
-          margin: "0 auto",
-        }}
-      >
-        <Box sx={{ textAlign: "start", alignItems: "center", m: 5 }}>
-          <a
-            href="/public/black_and_white cv2.pdf"
-            download="public/black_and_white cv2.pdf"
-          >
-            <Button sx={{ borderRadius: 3 }} variant="contained">
-              <Typography>My Resume</Typography>
-              <DownloadIcon></DownloadIcon>
-            </Button>
-          </a>
-        </Box>
-        <Box sx={{ textAlign: "start" }}>
-          <Typography variant="h3" sx={{ fontWeight: "bold" }}>
-            How to Contact?
-          </Typography>
-          <Box
-            sx={{
-              color: "secondary.main",
-              fontSize: { xs: 25, md: 35 },
-              fontStyle: "italic",
-            }}
-          >
-            <List>
-              <ListItem>
-                <ChromeReaderModeIcon sx={{ mr: 3 }} />
-                Name - Thiha Swe
-              </ListItem>
-              <ListItem>
-                <Link
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.3)")
-                  }
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
-                  href="tel:+95 9 767029207"
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit",
-                    transition: "transform ease-in-out 0.3s",
-                  }}
-                  className="phone"
-                >
-                  <PhoneIcon sx={{ mr: 3 }} />
-                  Ph - 09 7670 29 207
-                </Link>
-              </ListItem>
-
-              <ListItem>
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=thihaswe.work@gmail.com&su=Hi%20Thiha&body=I'm%20interested%20in%20working%20with%20you."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit",
-                    transition: "all ease-in-out 0.3s",
-                    display: "flex",
-                    alignItems: "center",
-                    marginTop: 16,
-                    marginBottom: 16,
-                  }}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.3)")
-                  }
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
-                >
-                  <EmailIcon sx={{ mr: 3 }} />
-                  Email - thihaswe.work@gmail.com
-                </a>
-              </ListItem>
-
-              <ListItem>
-                {ListItemList.filter((item) => item.id > 2)
-                  .sort((a, b) => b.id - a.id)
-                  .map((item) => {
-                    return (
-                      <Link
-                        key={item.id}
-                        href={`${item.href}`}
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        {item.icon}
-                      </Link>
-                    );
-                  })}
-                {/* <Link
-                  href="https://t.me/TonyStark7492"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <TelegramIcon
-                    sx={{ fontSize: 35, color: "secondary.main" }}
-                  />
-                </Link>
-                <Link
-                  style={{ textDecoration: "none" }}
-                  href={`https://www.linkedin.com/in/thiha-swe-0a168124a?utm_
-                  source=share&utm_campaign=share_via&utm_content=profile&utm
-                  _medium=android_app`}
-                >
-                  <LinkedInIcon
-                    sx={{ fontSize: 35, color: "secondary.main", m: "0 15px" }}
-                  ></LinkedInIcon>
-                </Link>
-                <Link href={`https://github.com/thihaswe`}>
-                  <GitHubIcon
-                    sx={{ fontSize: 33, color: "secondary.main" }}
-                  ></GitHubIcon>
-                </Link> */}
-              </ListItem>
-            </List>
-          </Box>
-        </Box>
-        <HireMe />
+    <Box sx={{ py: 4 }}>
+      {/* Header Section */}
+      <Box sx={{ mb: 8, textAlign: "center" }}>
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            fontWeight: "bold",
+            fontSize: { xs: "2rem", md: "3rem" },
+            mb: 2,
+            background: data === "light" 
+              ? "linear-gradient(135deg, #558B99 0%, #3d6a77 100%)"
+              : "linear-gradient(135deg, #e94560 0%, #ff6b6b 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Get In Touch
+        </Typography>
+        <Typography 
+          variant="body1" 
+          sx={{ 
+            color: "text.secondary",
+            maxWidth: 600,
+            mx: "auto",
+            fontSize: "1.1rem",
+          }}
+        >
+          Have a project in mind or want to collaborate? Feel free to reach out!
+        </Typography>
       </Box>
+
+      {/* Resume Download */}
+      <Box sx={{ mb: 8, textAlign: "center" }}>
+        <Button
+          component="a"
+          href="/cv.docx"
+          download="cv.docx"
+          variant="contained"
+          size="large"
+          startIcon={<DownloadIcon />}
+          sx={{
+            px: 4,
+            py: 1.5,
+            fontSize: "1.1rem",
+            borderRadius: 3,
+          }}
+        >
+          Download My Resume
+        </Button>
+      </Box>
+
+      {/* Contact Information */}
+      <Box sx={{ mb: 8 }}>
+        <Typography 
+          variant="h5" 
+          sx={{ 
+            fontWeight: "bold",
+            mb: 4,
+            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1,
+          }}
+        >
+          <ChromeReaderModeIcon /> Contact Information
+        </Typography>
+        
+        <Grid container spacing={3}>
+          {contactMethods.map((method) => (
+            <Grid item xs={12} sm={6} md={4} key={method.id}>
+              <Link href={method.href} passHref style={{ textDecoration: "none" }}>
+                <Paper
+                  sx={{
+                    p: 3,
+                    textAlign: "center",
+                    height: "100%",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
+                    },
+                    cursor: "pointer",
+                    bgcolor: data === "light" ? "info.main" : "rgba(255,255,255,0.05)",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 70,
+                      height: 70,
+                      mx: "auto",
+                      mb: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      bgcolor: data === "light" ? "primary.light" : "primary.dark",
+                      color: data === "light" ? "primary.main" : "secondary.main",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        bgcolor: data === "light" ? "primary.main" : "secondary.main",
+                        color: "white",
+                      },
+                    }}
+                  >
+                    {method.icon}
+                  </Box>
+                  <Typography 
+                    variant="h6" 
+                    sx={{ 
+                      fontWeight: 600,
+                      mb: 0.5,
+                      color: "text.primary",
+                    }}
+                  >
+                    {method.label}
+                  </Typography>
+                  <Typography 
+                    variant="body2" 
+                    sx={{ 
+                      color: "text.secondary",
+                      fontSize: "0.875rem",
+                    }}
+                  >
+                    {method.sublabel}
+                  </Typography>
+                </Paper>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      {/* Hire Me Section */}
+      <HireMe />
     </Box>
   );
 };

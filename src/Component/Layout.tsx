@@ -1,56 +1,70 @@
-import { Prop, ThemeContext } from "@/content/themeContent";
+import { Prop, ThemeContext } from "@/content/themeContent.tsx";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { Box, Button, Container } from "@mui/material";
-import { useContext } from "react";
+import { Box, Button, Container, Fab, Zoom } from "@mui/material";
+import { useContext, useState } from "react";
 import CopyRight from "./CopyRight";
 import TopBar from "./TopBar";
 
 const Layout = ({ children }: Prop) => {
   const { toggleTheme, data } = useContext(ThemeContext);
+  const [fabVisible, setFabVisible] = useState(false);
 
   return (
     <Box
       sx={{
-        backgroundColor: "primary.light",
-        height: "100vh",
-        textAlign: "center",
+        backgroundColor: "background.default",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Box
         sx={{
-          padding: 5,
-          backgroundColor: "primary.light",
+          paddingTop: 4,
+          backgroundColor: "background.default",
+          flex: 1,
         }}
       >
         <TopBar />
 
-        <Button
-          sx={{
-            position: "sticky",
-            top: 50,
-            left: "100%",
-            margin: 2,
-            borderRadius: 150,
-            zIndex: 5,
-          }}
-          variant="contained"
-          onClick={() => {
-            toggleTheme(data);
+        {/* Theme Toggle FAB */}
+        <Zoom in={true} timeout={600}>
+          <Fab
+            color="secondary"
+            sx={{
+              position: "fixed",
+              top: 80,
+              right: 24,
+              zIndex: 1000,
+              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+              "&:hover": {
+                transform: "scale(1.1) rotate(30deg)",
+              },
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            }}
+            onClick={() => {
+              toggleTheme();
+              setFabVisible(!fabVisible);
+            }}
+            aria-label="toggle theme"
+          >
+            {data === "light" ? (
+              <DarkModeIcon sx={{ fontSize: 28 }} />
+            ) : (
+              <LightModeIcon sx={{ fontSize: 28 }} />
+            )}
+          </Fab>
+        </Zoom>
+
+        <Container 
+          sx={{ 
+            minHeight: "calc(100vh - 200px)",
+            py: 4,
           }}
         >
-          {data === "light" ? (
-            <LightModeIcon
-              sx={{ borderRadius: 50, fontSize: 30 }}
-            ></LightModeIcon>
-          ) : (
-            <DarkModeIcon
-              sx={{ borderRadius: 50, fontSize: 30 }}
-            ></DarkModeIcon>
-          )}
-        </Button>
-
-        <Container sx={{ minHeight: "100vh" }}> {children}</Container>
+          {children}
+        </Container>
       </Box>
       <CopyRight />
     </Box>
